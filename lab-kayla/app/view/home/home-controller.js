@@ -26,6 +26,7 @@ module.exports = [
         .then(galleries => {
           this.galleries = galleries
           this.currentGallery= this.galleries[0]
+          this.user = this.currentGallery.username;
         })
         .catch(err => $log.error(err))
       }

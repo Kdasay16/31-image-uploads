@@ -1,11 +1,11 @@
 'use strict'
 
-const expect = require('chai').expect
+const expect = require('chai').expect// eslint-disable-line
 
 describe('Thumbnail Controller', function() {
   beforeEach(done => {
-    angular.mock.module('cfgram')
-    angular.mock.inject(($rootScope, $window, $httpBackend, $componentController, picService) => {
+    angular.mock.module('cfgram')// eslint-disable-line
+    angular.mock.inject(($rootScope, $window, $httpBackend, $componentController, picService) => {// eslint-disable-line
       this.$rootScope = $rootScope
       this.$window = $window
       this.$httpBackend = $httpBackend
@@ -49,10 +49,6 @@ describe('Thumbnail Controller', function() {
     done()
   })
 
-  // describe('Default properties', () => {  --finish
-  //
-  // })
-
   describe('Functional methods', () => {
     beforeEach(done => {
       this.expectUrl = 'http://localhost:3000/api/gallery/5678/pic/1234'
@@ -64,8 +60,7 @@ describe('Thumbnail Controller', function() {
     })
 
     afterEach(done => {
-      this.$httpBackend.flush()
-      this.$rootScope.$apply()
+
       done()
     })
 

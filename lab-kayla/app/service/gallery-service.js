@@ -36,29 +36,32 @@ module.exports = [
       })
     }
 
-    service.deleteGallery = (gallery) => {
+    service.deleteGallery = (galleryId) => {
       $log.debug('#galleryService.deleteGallery')
 
       return authService.getToken()
       .then(token => {
-        let url = `${__API_URL__}/api/gallery/${gallery._id}/` // eslint-disable-line
+        let url = `${__API_URL__}/api/gallery/${galleryId}/` // eslint-disable-line
         let config = {
           headers: {
             Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
             Accept: 'application/json, text/plain, */*'
           }
         }
-        return $http.delete(`${__API_URL__}/api/gallery/${gallery._id}`, config)// eslint-disable-line
+        return $http.delete(url, config)// eslint-disable-line
       })
-      .then(
-        () => {
-          $log.log('gallery deleted')
-        },
-        err => {
+      .then(res => {
+        $log.log('gallery deleted')
+        service.galleries.filter((ele, idx) => {
+          if(ele._id === galleryId) service.galleries.splice(idx, 1);
+        })
+        return res.status
+      })
+        .catch(err => {
           $log.error(err.message)
           return $q.reject(err)
-        }
-      )
+        })
     }
 
     service.fetchGalleries = () => {

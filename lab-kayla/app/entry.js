@@ -6,8 +6,8 @@ const path = require('path')
 const angular = require('angular')
 const camelcase = require('camelcase')
 const pascalcase = require('pascalcase')
-const ngTouch = require('angular-touch')
-const ngAnimate = require('angular-animate')
+const ngTouch = require('angular-touch')// eslint-disable-line
+const ngAnimate = require('angular-animate')// eslint-disable-line
 require('ng-file-upload')
 require('@uirouter/angularjs')
 require('angular-ui-bootstrap')

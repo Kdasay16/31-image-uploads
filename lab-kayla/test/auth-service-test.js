@@ -1,13 +1,13 @@
 //listen to lecture after first break about the setup
 'use strict'
 
-const expect = require('chia').expect
+const expect = require('chai').expect
 
 describe('Auth Service', function() {
   beforeEach(done => {
-    angular.mock.module('cfgram')//cfgram  == what you call it in entry.js
-    angular.mock.inject(($httpBackend, $window, $rootScope, authService) => { //any dependencies needed for the testing
-      this.$httpBackend = $httpBackend
+    angular.mock.module('cfgram')// eslint-disable-line
+    angular.mock.inject(($httpBackend, $window, $rootScope, authService) => { // eslint-disable-line 
+      this.$httpBackend = $httpBackend//any dependencies needed for the testing
       this.$window = $window
       this.$rootScope = $rootScope
       this.authService = authService
